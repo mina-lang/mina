@@ -57,12 +57,14 @@ i16 array_a[]    = [10, 20, 30];  // lenght 3, all set
 f64 array_b[5];                   // length 5, all 0
 i32 array_c[10]  = [1, 2];        // length 10, first two set, rest 0
 u8  array_d[128] = [255, ...];    // length 128, set all to 255
+c8  array_e[1, 10];               // Initial length of 1, can be expanded to 10
 
 c8  string[] = "Hello!";
 ```
-Getting information about an array
+You can get information about an array using the meta handles
 ```rust
-println("Length of array_a: {}", array_a:len);
+println("Length of array_a: {}", array_a:len); // Length of array_a: 3
+println("Size of array_a: {}", array_a:size);  // Size of array_a: 6
 ```
 
 
@@ -70,13 +72,15 @@ println("Length of array_a: {}", array_a:len);
 Pointers are defined as a special type `ptr` pointing to some memory. It also contains information about the data it points to like type, length, capacity, etc..
 
 ```rust
-ptr pointer_a      = null;          // void pointer to null
+ptr pointer_x      = null; // void pointer to null
+ptr pointer_y(i32) = null; // i32 pointer to null
 
-ptr pointer_b(i32) = &interger_var; // i32 pointer to to some integer value of the same size
-ptr pointer_c(f32, 1, 20);          // heap allocates memory for 20 'f32' values at runtime, with current length set to 1
-ptr pointer_d(u8, size_var);        // allocates memory at runtime of size size_var
+ptr pointer_a = &interger_var;          // pointer to to some integer value, taking the type
+ptr pointer_b(i16, 10);                 // allocates memory at runtime of size 10 * `i16`
+ptr pointer_c(f32, 1, 20);              // allocates memory at runtime of size 20 * `f32`, with current length set to 1
+ptr pointer_d(u8, size_var) = [0, ...]; // allocates memory at runtime of size size_var and sets it to 0
 
-unsafe ptr pointer_e(my_struct, 1024) = 0xFE78A2; // points to memory specified and mappes it as an array of 'my_struct' (this is considered unsafe)
+unsafe ptr pointer_e(my_struct, 1024) = 0xFE78A2; // points to memory location specified and maps it as an array of type 'my_struct' with a length of 1024 (this is considered unsafe)
 ```
 
 
