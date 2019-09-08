@@ -15,7 +15,7 @@ A simple, C-like programming language.
 | 16 bit | `i16` | `u16` | `f16` |
 | 32 bit | `i32` | `u32` | `f32` |
 | 64 bit | `i64` | `u64` | `f64` |
-| 128 bit | `i128` | `u128` | `f128` |
+| 128 bit | `i128` | `u128` |   |
 | Architecture | `isize` | `usize` | `fsize` |
 
 Examples of declaring variables:
