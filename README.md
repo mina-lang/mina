@@ -27,7 +27,7 @@ uint unsigned = 127;    // unsigned integer with the same size as the architectu
 ```
 
 #### Boolean Type
-The boolean type (`bool`) can only be the values `true` and `false`, which can also be defined using `0` and `1`.
+The boolean type `bool` can only be the values `true` and `false`, which can also be defined using `0` and `1`.
 
 ```rust
 bool var_a = true; // 1
@@ -35,7 +35,7 @@ bool var_b = 0;    // false
 ```
 
 #### Character Types
-These types are used for storing single characters in either 8-bit (`c8`), 16-bit (`c16`) or 32-bit (`c32`) code points.
+These types are used for storing single characters in either 8-bit `c8`, 16-bit `c16` or 32-bit `c32` code points.
 
 ```rust
 c8  character = 'A';  // can hold all ascii characters
@@ -67,6 +67,8 @@ array:cap	// capacity of arrays (always 1 for non-arrays)
 ```
 
 ### The Pointer Type
+Pointers are defined as a special type `ptr` pointing to some memory. It also contains information about the data it points to like type, length, capacity, etc..
+
 ```rust
 ptr pointer_a      = null;          // void pointer to null
 ptr pointer_b(i32) = &interger_var; // i32 pointer to to some integer value of the same size
