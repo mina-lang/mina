@@ -32,8 +32,8 @@ You can get information about any variable by using meta handles
 Examples of declaring variables:
 
 ```rust
-i32  integer   = 42;
-f64  floating  = 3.1415;
+i32   integer  = 42;
+f64   floating = 3.1415;
 usize unsigned = 127;    // unsigned integer with the same size as the architecture
 ```
 
