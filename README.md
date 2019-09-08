@@ -16,14 +16,14 @@ A simple, C-like programming language.
 | 32 bit | `i32` | `u32` | `f32` |
 | 64 bit | `i64` | `u64` | `f64` |
 | 128 bit | `i128` | `u128` | `f128` |
-| Architecture | `int` | `uint` | `float` |
+| Architecture | `isize` | `usize` | `fsize` |
 
 Examples of declaring variables:
 
 ```rust
 i32  integer  = 42;
 f64  floating = 3.1415;
-uint unsigned = 127;    // unsigned integer with the same size as the architecture
+usize unsigned = 127;    // unsigned integer with the same size as the architecture
 ```
 
 #### Boolean Type
