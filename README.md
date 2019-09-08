@@ -2,7 +2,10 @@
 A simple, C-like programming language.
 
 
-## Data Types
+## Variables & Data Types
+
+
+
 
 
 ### Scalar Types
