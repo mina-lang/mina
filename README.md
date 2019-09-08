@@ -13,7 +13,7 @@ You can get information about any variable by using meta handles
 
 | Handle | Description |
 | ------ | ------ |
-| `var:type` | Variable type. `i32`, `f16`, `ptr-c8`, `ptr-void`, etc.. |
+| `var:type` | Variable type, like `i32`, `f16`, `ptr-c8`, `ptr-void`, etc.. |
 | `var:size` | Size of whole collection in bytes (size of type for non-arrays) |
 | `var:len` | Length of collection (always 1 for non-arrays) |
 | `var:cap` | Capacity of arrays (always 1 for non-arrays) |
@@ -22,18 +22,18 @@ You can get information about any variable by using meta handles
 ### Scalar Types
 | Size | Signed Integer | Unsigned Integer | Floating Point | Character |
 | ------ | ------ | ------ | ------ | ------ |
-| 8-bit | `i8` | `u8` | `f8` | `c8` |
-| 16-bit | `i16` | `u16` | `f16` | `c16` |
-| 32-bit | `i32` | `u32` | `f32` | `c32` |
-| 64-bit | `i64` | `u64` | `f64` |
+| 8-bit  | `i8`   | `u8`   | `f8`   | `c8`   |
+| 16-bit | `i16`  | `u16`  | `f16`  | `c16`  |
+| 32-bit | `i32`  | `u32`  | `f32`  | `c32`  |
+| 64-bit | `i64`  | `u64`  | `f64`  |
 | 128-bit | `i128` | `u128` |
 | Architecture | `isize` | `usize` |
 
 Examples of declaring variables:
 
 ```rust
-i32  integer  = 42;
-f64  floating = 3.1415;
+i32  integer   = 42;
+f64  floating  = 3.1415;
 usize unsigned = 127;    // unsigned integer with the same size as the architecture
 ```
 
@@ -78,9 +78,16 @@ ptr pointer_y(i32) = null; // i32 pointer to null
 ptr pointer_a = &interger_var;          // pointer to to some integer value, taking the type
 ptr pointer_b(i16, 10);                 // allocates memory at runtime of size 10 * `i16`
 ptr pointer_c(f32, 1, 20);              // allocates memory at runtime of size 20 * `f32`, with current length set to 1
-ptr pointer_d(u8, size_var) = [0, ...]; // allocates memory at runtime of size size_var and sets it to 0
+ptr pointer_d(u8, size_var) = [255...]; // allocates memory at runtime of size 'size_var' and sets it to 255
 
 unsafe ptr pointer_e(my_struct, 1024) = 0xFE78A2; // points to memory location specified and maps it as an array of type 'my_struct' with a length of 1024 (this is considered unsafe)
 ```
 
+
+### String Type
+The string type `str` is more or less an alias of `ptr` but limited to characters, and automatically chooses the char size.
+```rust
+str string_a = "Hello";
+string_a.append(", World!");
+```
 
