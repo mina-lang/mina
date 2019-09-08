@@ -6,17 +6,14 @@ A simple, C-like programming language.
 
 
 ### Scalar Types
-
-
-#### Numerical Types
-| Size | Signed Integer | Unsigned Integer | Floating Point |
-| ------ | ------ | ------ | ------ |
-| 8 bit | `i8` | `u8` | `f8` |
-| 16 bit | `i16` | `u16` | `f16` |
-| 32 bit | `i32` | `u32` | `f32` |
-| 64 bit | `i64` | `u64` | `f64` |
-| 128 bit | `i128` | `u128` |   |
-| Architecture | `isize` | `usize` | `fsize` |
+| Size | Signed Integer | Unsigned Integer | Floating Point | Character |
+| ------ | ------ | ------ | ------ | ------ |
+| 8 bit | `i8` | `u8` | `f8` | `c8` |
+| 16 bit | `i16` | `u16` | `f16` | `c16` |
+| 32 bit | `i32` | `u32` | `f32` | `c32` |
+| 64 bit | `i64` | `u64` | `f64` |   |
+| 128 bit | `i128` | `u128` |  |  |
+| Architecture | `isize` | `usize` |  |  |
 
 Examples of declaring variables:
 
@@ -26,20 +23,17 @@ f64  floating = 3.1415;
 usize unsigned = 127;    // unsigned integer with the same size as the architecture
 ```
 
+```rust
+c8  character = 'A';  // can hold all ascii characters
+c32 character = 'あ'; // can hold any unicode charater
+```
+
 #### Boolean Type
 The boolean type `bool` can only be the values `true` and `false`, which can also be defined using `0` and `1`.
 
 ```rust
 bool var_a = true; // 1
 bool var_b = 0;    // false
-```
-
-#### Character Types
-These types are used for storing single characters in either 8-bit `c8`, 16-bit `c16` or 32-bit `c32` code points.
-
-```rust
-c8  character = 'A';  // can hold all ascii characters
-c32 character = 'あ'; // can hold any unicode charater
 ```
 
 ### Compound Types
