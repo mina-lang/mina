@@ -56,7 +56,7 @@ Arrays are static, stack allocated collections of scalar variables.
 i16 array_a[]    = [10, 20, 30];  // lenght 3, all set
 f64 array_b[5];                   // length 5, all 0
 i32 array_c[10]  = [1, 2];        // length 10, first two set, rest 0
-u8  array_d[128] = [255, ...];    // length 128, set all to 255
+u8  array_d[128] = [127...];      // length 128, set all to 127
 c8  array_e[1, 10];               // Initial length of 1, can be expanded to 10
 
 c8  string[] = "Hello!";
@@ -80,12 +80,14 @@ ptr pointer_b(i16, 10);                 // allocates memory at runtime of size 1
 ptr pointer_c(f32, 1, 20);              // allocates memory at runtime of size 20 * `f32`, with current length set to 1
 ptr pointer_d(u8, size_var) = [255...]; // allocates memory at runtime of size 'size_var' and sets it to 255
 
+ptr string(c16) = "こんにちは！";         // allocates memory at runtime for a c16 string of the same size as the literal
+
 unsafe ptr pointer_e(my_struct, 1024) = 0xFE78A2; // points to memory location specified and maps it as an array of type 'my_struct' with a length of 1024 (this is considered unsafe)
 ```
 
 
 ### String Type
-The string type `str` is more or less an alias of `ptr` but limited to characters, and automatically chooses the char size.
+The string type `str` is more or less an alias of `ptr` but limited to 32-bit unicode characters.
 ```rust
 str string_a = "Hello";
 string_a.append(", World!");
