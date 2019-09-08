@@ -8,12 +8,12 @@ A simple, C-like programming language.
 ### Scalar Types
 | Size | Signed Integer | Unsigned Integer | Floating Point | Character |
 | ------ | ------ | ------ | ------ | ------ |
-| 8 bit | `i8` | `u8` | `f8` | `c8` |
-| 16 bit | `i16` | `u16` | `f16` | `c16` |
-| 32 bit | `i32` | `u32` | `f32` | `c32` |
-| 64 bit | `i64` | `u64` | `f64` |   |
-| 128 bit | `i128` | `u128` |  |  |
-| Architecture | `isize` | `usize` |  |  |
+| 8-bit | `i8` | `u8` | `f8` | `c8` |
+| 16-bit | `i16` | `u16` | `f16` | `c16` |
+| 32-bit | `i32` | `u32` | `f32` | `c32` |
+| 64-bit | `i64` | `u64` | `f64` |
+| 128-bit | `i128` | `u128` |
+| Architecture | `isize` | `usize` |
 
 Examples of declaring variables:
 
@@ -65,9 +65,12 @@ Pointers are defined as a special type `ptr` pointing to some memory. It also co
 
 ```rust
 ptr pointer_a      = null;          // void pointer to null
+
 ptr pointer_b(i32) = &interger_var; // i32 pointer to to some integer value of the same size
 ptr pointer_c(f32, 1, 20);          // heap allocates memory for 20 'f32' values at runtime, with current length set to 1
 ptr pointer_d(u8, size_var);        // allocates memory at runtime of size size_var
+
+unsafe ptr pointer_e(my_struct, 1024) = 0xFE78A2; // points to memory specified and mappes it as an array of 'my_struct' (this is considered unsafe)
 ```
 
 
