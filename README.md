@@ -3,9 +3,20 @@ A simple, C-like programming language.
 
 
 ## Variables & Data Types
+Variables are simply declared like this `type name = value;`    
+There is no special keyword like 'var' or 'let' beacause what type a variable is should be in focus.
 
+Variables are immutable by default like they are in rust.    
+To make a variable mutable use the `mut` keyword like this `i32 mut var = 42;`
 
+You can get information about any variable by using meta handles
 
+| Handle | Description |
+| ------ | ------ |
+| `var:type` | Variable type. `i32`, `f16`, `ptr-c8`, `ptr-void`, etc.. |
+| `var:size` | Size of whole collection in bytes (size of type for non-arrays) |
+| `var:len` | Length of collection (always 1 for non-arrays) |
+| `var:cap` | Capacity of arrays (always 1 for non-arrays) |
 
 
 ### Scalar Types
@@ -39,10 +50,8 @@ bool var_a = true; // 1
 bool var_b = 0;    // false
 ```
 
-### Compound Types
-
-#### Array Type
-Declaring an array variable
+### Arrays
+Arrays are static, stack allocated collections of scalar variables.
 ```rust
 i16 array_a[]    = [10, 20, 30];  // lenght 3, all set
 f64 array_b[5];                   // length 5, all 0
@@ -56,12 +65,6 @@ Getting information about an array
 println("Length of array_a: {}", array_a:len);
 ```
 
-```mina
-array:type	// variable type. i32, f16, ptr-c8, ptr-void, etc..
-array:size	// size of whole collection
-array:len	// length of collection (always 1 for non-arrays)
-array:cap	// capacity of arrays (always 1 for non-arrays)
-```
 
 ### The Pointer Type
 Pointers are defined as a special type `ptr` pointing to some memory. It also contains information about the data it points to like type, length, capacity, etc..
