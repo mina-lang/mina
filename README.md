@@ -9,11 +9,12 @@ There is no special keyword like 'var' or 'let' beacause what type a variable is
 Variables are immutable by default like they are in rust.    
 To make a variable mutable use the `mut` keyword like this `i32 mut var = 42;`
 
-You can get information about any variable by using meta handles
+You can get information about any variable by using meta handles. These are in most cases calculated at compile time, except for dynamic sizes of heap allocated variables.
 
 | Handle | Description |
 | ------ | ------ |
 | `var:type` | Variable type, like `i32`, `f16`, `ptr-c8`, `ptr-void`, etc.. |
+| `var:name` | Returns the name of the variable or function |
 | `var:size` | Size of whole collection in bytes (size of type for non-arrays) |
 | `var:len` | Length of collection (always 1 for non-arrays) |
 | `var:cap` | Capacity of arrays (always 1 for non-arrays) |
