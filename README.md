@@ -1,19 +1,19 @@
 # Minamoto Language
-A simple, C-like programming language.
+A simple, C-like programming language taking inspiration from other languages such as Go and Rust.
 
 
 ## Variables & Data Types
-Variables are simply declared like this `type name = value;`    
+Variables are declared the same way as in C: `type name = value;`    
 There is no special keyword like 'var' or 'let' beacause what type a variable is should be in focus.
 
-Variables are immutable by default like they are in rust.    
-To make a variable mutable use the `mut` keyword like this `i32 mut var = 42;`
+Variables are immutable by default.    
+To make a variable mutable use the `mut` keyword: `i32 mut var = 42;`
 
 You can get information about any variable by using meta handles. These are in most cases calculated at compile time, except for dynamic sizes of heap allocated variables.
 
 | Handle | Description |
 | ------ | ------ |
-| `var:type` | Variable type, like `i32`, `f16`, `ptr-c8`, `ptr-void`, etc.. |
+| `var:type` | Variable type. `i32`, `f16`, `ptr-c8`, `ptr-void`, etc.. |
 | `var:name` | Returns the name of the variable or function |
 | `var:size` | Size of whole collection in bytes (size of type for non-arrays) |
 | `var:len` | Length of collection (always 1 for non-arrays) |
@@ -66,6 +66,7 @@ You can get information about an array using the meta handles
 ```rust
 println("Length of array_a: {}", array_a:len); // Length of array_a: 3
 println("Size of array_a: {}", array_a:size);  // Size of array_a: 6
+println("Size of array_a entry: {}", array_a[0]:size);  // Size of array_a entry: 2
 ```
 
 
