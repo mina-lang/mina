@@ -2,7 +2,11 @@
 A simple, C-like programming language taking inspiration from other languages such as Go and Rust.
 
 
-## Variables & Data Types
+**Table of Contents**
+- [Variables and Data Types](#variables-and-data-types)
+
+
+## Variables and Data Types
 Variables are declared the same way as in C: `type name = value;`    
 There is no special keyword like 'var' or 'let' beacause what type a variable is should be in focus.
 
