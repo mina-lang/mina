@@ -44,9 +44,9 @@ You can get information about any variable by using the attribute handles. These
 Examples of declaring variables:
 
 ```mina
-i32   integer  = 42;
-f64   floating = 3.1415;
-usize unsigned = 127;    // unsigned integer with the same size as the architecture
+i32  integer  = 42;
+f64  floating = 3.1415;
+uint  unsigned = 127;    // unsigned integer with the same size as the architecture
 ```
 
 ```mina
