@@ -39,7 +39,7 @@ You can get information about any variable by using the attribute handles. These
 | 32-bit | `i32`  | `u32`  | `f32`  | `c32`  |
 | 64-bit | `i64`  | `u64`  | `f64`  |
 | 128-bit | `i128` | `u128` |
-| Architecture | `ixx` | `uxx` |
+| Architecture | `int` | `uint` |
 
 Examples of declaring variables:
 
