@@ -46,7 +46,7 @@ Examples of declaring variables:
 ```mina
 i32  integer  = 42;
 f64  floating = 3.1415;
-uint  unsigned = 127;    // unsigned integer with the same size as the architecture
+uint unsigned = 127;    // unsigned integer with the same size as the architecture
 ```
 
 ```mina
