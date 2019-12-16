@@ -4,6 +4,11 @@ A simple, C-like programming language taking inspiration from other languages su
 
 **Table of Contents**
 - [Variables and Data Types](#variables-and-data-types)
+  - [Attribute Handles](#attribute-handles)
+  - [Scalar Types](#scalar-types)
+  - [Arrays](#arrays)
+  - [Pointers](#pointers)
+  - [Strings](#strings)
 
 
 ## Variables and Data Types
@@ -13,6 +18,8 @@ There is no special keyword like 'var' or 'let' beacause what type a variable is
 Variables are immutable by default.    
 To make a variable mutable use the `mut` keyword: `i32 mut var = 42;`
 
+
+### Attribute Handles
 You can get information about any variable by using the attribute handles. These are in most cases calculated at compile time, except for dynamic sizes of heap allocated variables.
 
 | Handle | Description |
@@ -74,7 +81,7 @@ println("Size of array_a entry: {}", array_a[0]:size);  // Size of array_a entry
 ```
 
 
-### The Pointer Type
+### Pointers
 Pointers are defined as a special type `ptr` pointing to some memory. It also contains information about the data it points to like type, length, capacity, etc..
 
 ```mina
@@ -92,7 +99,7 @@ unsafe ptr pointer_e(my_struct, 1024) = 0xFE78A2; // points to memory location s
 ```
 
 
-### String Type
+### Strings
 The string type `str` is an alias for `ptr(c32)`
 ```mina
 str string_a = "Hello";
