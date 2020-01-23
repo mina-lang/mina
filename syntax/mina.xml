@@ -11,30 +11,41 @@
 			<item>if</item>
 			<item>else</item>
 			<item>for</item>
-			<item>return</item>
+			<item>while</item>
 
 			<item>unsafe</item>
+
+			<item>return</item>
+			<item>error</item>
 		</list>
 
 		<list name="keywords">
-			<item>mut</item>
-
 			<item>enum</item>
 			<item>struct</item>
+			<item>union</item>
+
+			<item>mut</item>
+
+			<item>fnc</item>
+
+			<item>import</item>
 		</list>
 
 		<list name="attributes">
 			<item>type</item>
 			<item>name</item>
+
 			<item>size</item>
 			<item>len</item>
 			<item>cap</item>
+
+			<item>align</item>
+			<item>offset</item>
 		</list>
 
 		<list name="types">
 			<item>void</item>
 			<item>ptr</item>
-			<item>fnc</item>
 
 			<item>bool</item>
 
