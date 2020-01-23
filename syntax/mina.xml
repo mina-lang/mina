@@ -76,16 +76,17 @@
 				<DetectSpaces />
 				<keyword attribute="Control Flow" context="#stay" String="controlflow"/>
 				<keyword attribute="Data Type" context="#stay" String="types"/>
-				<keyword attribute="Attribute" context="#stay" String="attributes"/>
+				<DetectChar context="Attribute" char=":"/>
 				<keyword attribute="Keyword" context="#stay" String="keywords"/>
 				<keyword attribute="Constant" context="#stay" String="constants"/>
 
 				<DetectIdentifier />
-				<DetectChar attribute="Symbol" context="#stay" char="{" beginRegion="Brace1"/>
-				<DetectChar attribute="Symbol" context="#stay" char="}" endRegion="Brace1"/>
 
-				<Float attribute="Float" context="#stay"/>
-				<Int attribute="Decimal" context="#stay"/>
+				<RegExpr attribute="Number" String="0x[0-9a-fA-F]+" context="#stay"/>
+				<RegExpr attribute="Number" String="0o[0-7]+" context="#stay"/>
+				<RegExpr attribute="Number" String="0b[0-1]+" context="#stay"/>
+				<Float attribute="Number" context="#stay"/>
+				<Int attribute="Number" context="#stay"/>
 
 				<HlCChar attribute="Char" context="#stay"/>
 				<DetectChar attribute="String" context="String" char="&quot;"/>
@@ -93,7 +94,11 @@
 				<Detect2Chars attribute="Comment" context="Comment 1" char="/" char1="/"/>
 				<Detect2Chars attribute="Comment" context="Comment 2" char="/" char1="*" beginRegion="Comment"/>
 
-				<AnyChar attribute="Symbol" context="#stay" String=":!%&amp;()+,-/.*&lt;=&gt;?[]|~^&#59;"/>
+				<AnyChar attribute="Symbol" context="#stay" String=":!%&amp;()+,-/.*&lt;=&gt;?[]{}|~^&#59;"/>
+			</context>
+
+			<context name="Attribute" attribute="Attribute" fallthroughContext="#pop">
+				<keyword attribute="Attribute" context="#pop" String="attributes"/>
 			</context>
 
 			<context name="String" attribute="String" lineEndContext="#pop">
@@ -116,16 +121,12 @@
 
 			<itemData name="Symbol"       defStyleNum="dsNormal"      spellChecking="false"/>
 			<itemData name="Data Type"    defStyleNum="dsDataType"    spellChecking="false"/>
-			<itemData name="Attribute"    defStyleNum="dsAttribute"     spellChecking="false"/>
+			<itemData name="Attribute"    defStyleNum="dsAttribute"   spellChecking="false"/>
 			<itemData name="Keyword"      defStyleNum="dsKeyword"     spellChecking="false"/>
 			<itemData name="Control Flow" defStyleNum="dsControlFlow" spellChecking="false"/>
-			<itemData name="Constant"     defStyleNum="dsConstant"    spellChecking="false"/>
 
-			<itemData name="Decimal"      defStyleNum="dsDecVal"      spellChecking="false"/>
-			<!--itemData name="Octal"        defStyleNum="dsBaseN"       spellChecking="false"/>
-			<itemData name="Hex"          defStyleNum="dsBaseN"       spellChecking="false"/>
-			<itemData name="Binary"       defStyleNum="dsBaseN"       spellChecking="false"/-->
-			<itemData name="Float"        defStyleNum="dsFloat"       spellChecking="false"/>
+			<itemData name="Constant"     defStyleNum="dsConstant"    spellChecking="false"/>
+			<itemData name="Number"      defStyleNum="dsDecVal"      spellChecking="false"/>
 
 			<itemData name="Char"         defStyleNum="dsChar"        spellChecking="false"/>
 			<itemData name="String"       defStyleNum="dsString"/>
