@@ -110,3 +110,12 @@ You can get information about any variable by using the attribute handles. These
 | `:align` | Alignment of struct members in bytes (usually size of biggest type) |
 | `:offset` | Offset of member within struct in bytes+bits |
 
+```mina
+variable:type  // type of "variable"
+func:name      // name of "func"
+array:size     // size in bytes of "array" (both stack and heap)
+array:len      // number of entries in "array"
+string:cap     // number of preallocated entries in "array"
+vec3:align     // alignment of members in struct type "vec3"
+vec4.z:offset  // offset of member "z" within struct type "vec4"
+```
