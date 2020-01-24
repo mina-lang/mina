@@ -1,0 +1,35 @@
+
+
+struct obj {
+	str	name;
+	i64	value;
+};
+
+struct bitmap {
+
+	u16:4	width;		// 8, 16, 24 ... 128 px
+	u16:4	height;		// 8, 16, 24 ... 128 px
+
+	u16:2	bpp;		// 1, 2, 4, 8
+	u16:6	unused;
+
+	u16	data_pos;	// 0 - 65535
+};
+
+bitmap:size		// 4 bytes
+bitmap:align		// 2 bytes
+bitmap.bpp:offset	// 2
+
+
+union v2f {
+	struct {
+		f32 x, y;
+	};
+	struct {
+		f32 w, h;
+	};
+	f32 a[2];
+};
+
+
+

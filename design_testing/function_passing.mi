@@ -1,0 +1,46 @@
+
+
+// immutable scalar			// mutable scalar
+f32 var = 3.12;				f32 mut var = 3.12;
+
+copied(var);				copied(var);
+borrowed(&var);				borrowed(&var);
+
+
+fnc copied(f32 var) {			fnc copied(f32 mut var) {
+	println(var);				var += 3.14;
+}					}
+
+fnc borrowed(f32 &var) {		fnc borrowed(f32 &mut var) {
+	println(var);				var += 3.14;
+}					}
+// ----					// ----
+
+
+// immutable static array		// mutable static array
+u8 var[] = [1, 2, 3, 4];		u8 mut var[] = [1, 2, 3, 4];
+
+copied(var);				copied(var);
+borrowed(&var);				borrowed(&var);
+
+
+fnc copied(u8 var[]) {			fnc copied(u8 mut var[]) {
+	println(var);				println(var);
+}					}
+
+fnc borrowed(u8 &var[]) {		fnc borrowed(u8 &mut var[]) {
+	println(var);				println(var);
+}					}
+// ----					// ----
+
+
+// immutable dynamic array		// mutable dynamic array
+ptr var(i32, 0, 5) = [0, ...];		ptr mut var(i32, 0, 5) = [0, ...];
+
+borrowed(var);				borrowed(var);
+
+
+fnc borrowed(ptr &var(i32)) {		fnc borrowed(ptr mut var(i32)) {
+	println(var);				var.append([-1, -2, -3]);
+}					}
+// ----

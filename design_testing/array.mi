@@ -1,0 +1,135 @@
+
+
+
+
+
+// pointers
+ptr pointer(i32) = null;
+
+i32 a = 5;
+ptr b = &a;     // make address of 'a'
+i32 mut c = *b; // copy value of pointer 'b'
+
+func(&c);       // pass mutable reference of c to function
+
+
+
+ptr nothing;	// void pointer to null with zero length
+unsafe ptr undefined = 0xbfffc6e480ae5f28;	// void pointer to some address, but what is unknown
+
+ptr integer(u64) = &some_64bit_int;	// pointer to an u64 variable of length 1
+ptr array(f16, 10);	// pointer to newly allocated space of f16 * 10
+
+
+
+
+
+
+// ----
+
+c8  stack_string[]  = "Hello";
+ptr heap_string(c8) = "Hey";
+str heap_string     = "Yo!";
+
+
+u8 mut a, i32 b = 128, -87;
+
+
+fnc main() int {
+
+	i32 mut array_a[] = [10, 20, 30];	// lenght 3, all set
+	f16 array_b[5];				// length 5, all 0
+	i64 array_c[10] = [1, 2];		// length 10, first two set, rest 0
+	u8  array_c[128] = [255, ...];		// length 128, set all to 255
+
+	update(&array_a);
+
+	println("array_a from main {}", array_a);
+
+	return SUCCESS;
+}
+
+fnc update(i32 &mut array[]) {
+
+	i16 array_d[array[1]];		// stack allocated, length variable is copied into an immutable shadow variable
+
+	for(uint i = 0; i < array:len; i++) {
+		array[i] = 0;
+	}
+
+	println("array_d length: {}\narray_d content: {}", array_d:len, array_d);
+	println("array_a from update {}", array);
+}
+
+
+i32 array[5];		// stack allocated static array of length 5 (compile time)
+i32 array[var];		// stack allocated static array of length 'var' (run time)
+
+ptr array(i32, 0, 20);	// heap allocated dynamic array of capacity 20 (run time)
+ptr array(u8, 8);
+ptr array(f64) = [0, 0.25, 0.5, 0.75, 1];
+
+
+ptr hello(c16) = "Hello";
+print_str(hello);
+
+fnc print_str(ptr string(c16)) int {
+
+	println(string);
+
+	return SUCCESS;
+}
+
+
+// variable info
+array:type	// variable type. i32, f16, ptr-c8, ptr-void, etc..
+array:name	// variable name as a fixed string
+
+array:size	// size of whole collection
+array:len	// length of collection (always 1 for non-arrays)
+array:cap	// capacity of arrays (always 1 for non-arrays)
+
+
+if (var:type == int) {
+	// do something
+}
+
+
+
+
+fnc add_one(i32 &mut e) {
+	e += 1;
+}
+
+fnc main() int {
+
+	i32 mut i = 3;
+
+	add_one(&i);
+
+	println("{}", i);
+
+	return SUCCESS;
+}
+
+
+
+
+
+
+
+
+
+
+int myArray[10] = [1, 2, 0, ...]; // the rest of elements get the value 0
+f32 myFloats[] = [1.2, 2.5, 3.333, 4.92, 11.2, 22.0]; // automatically sizes
+
+i64 a2D_Array[3][5];    /* 3 rows, 5 columns. */
+f32 my2Dfloats[][3] = [
+	1.0, 2.0, 0.0,
+	5.0, 1.0, 3.0
+];
+
+ptr myArray(uint, 10) = [0, ...];
+myArray[0] = 1;
+myArray[1] = 3;

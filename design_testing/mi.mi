@@ -1,0 +1,117 @@
+
+
+HelloWorld Example
+
+void main() {
+	println("Hello, World!");
+}
+
+
+0b1010
+0xF58A
+0o7105
+
+
+Comments
+
+// One line Comment
+
+var:size
+
+/* Multiline
+    Comment  */
+
+
+Data Types
+
+
+i32 mut var = 42;
+
+
+// Declaration Examples
+i32 integer   = -5;
+u8  unsigned  = 255;
+
+bool boolean   = true;
+
+f16 float     = 3.1415;
+
+c8  character  = 'A';
+c8  string_a[] = "Hello\n";
+ptr string_b   = "こんにちは";
+
+ptr pointer_a = &integer;
+ptr pointer_b(u32, 0, 128);
+
+unsafe ptr pointer_c(my_struct, 1024) = 0xFE78A2;
+// ----
+
+
+// stack allocated single character
+c8  character = 'A';
+c32 character = 'あ';
+
+// stack allocated static character array
+c8  string[] = "Hello";
+c32 string[] = "こんにちは！";
+
+// heap allocated dynamic string
+ptr string = "Hello";
+ptr string = "こんにちは！";
+
+
+
+
+
+struct file_t {
+	i64	i;
+};
+
+fnc (file_t f).write(ptr data(c8)) i64 {
+
+	if f.i % 2 == 0 {
+		return f.i / 2;
+	} else {
+		error "Couldn't do it..";
+	}
+}
+
+
+import std.fs.file;
+
+fnc main() (int) {
+
+	c8 data[] = "some bytes";
+
+	u64 mut pos = 0;
+	file_t mut buffer = file.create("foo.txt")?;
+
+	while pos < data:len {
+		i64 bytes_written = buffer.write(&data[pos..])?;
+		pos += bytes_written;
+	}
+
+	return 0;
+}
+
+
+
+fnc main() int {
+
+	ptr buffer(u8, 1024);
+
+	for u64 i = 0; i < buffer:len; i++ {
+
+		buffer[i] = i % 256;
+	}
+
+	return 0;
+}
+
+
+
+match number {
+	1: /* do one thing */,
+	2: /* do another thing */,
+	_: /* do default thing */
+}

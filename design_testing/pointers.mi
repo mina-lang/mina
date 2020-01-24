@@ -1,0 +1,19 @@
+
+
+
+unsafe ptr memory(u8, 2048) = 0xF777;
+
+ptr part(f16) = memory[0xFF..0xF77];
+
+
+memory.resize(1024);			// resizes 'memory' to 1024 bytes and frees the upper 1024
+memory.resize(1024, memory:cap);	// resizes 'memory', but keeps the old data (keeping cap)
+
+
+
+unsafe ptr memory(u8, 2048) = 0xF777;
+ptr array(i32, 10);
+
+fnc func(ptr array(i32)) ptr(i32) {
+	// ----
+}

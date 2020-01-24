@@ -1,0 +1,8 @@
+
+
+
+lock(var_a, array[0, 15]) {
+	
+	// do some things
+	
+} // unlocked here
